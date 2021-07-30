@@ -1,18 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from rango.models import Category
-from rango.models import Page
-from rango.forms import CategoryForm
-from django.shortcuts import redirect
-from rango.forms import PageForm
-from django.shortcuts import redirect
 from django.urls import reverse
-from rango.forms import UserForm, UserProfileForm
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponse
-from django.urls import reverse
-from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
+from rango.models import Category, Page
+from rango.forms import CategoryForm, PageForm, UserForm, UserProfileForm
 
 def index(request):
     category_list = Category.objects.order_by('-likes')[:5]
